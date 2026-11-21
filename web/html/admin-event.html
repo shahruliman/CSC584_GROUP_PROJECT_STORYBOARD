@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events | U CONNECT</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/create-event.css">
+  <link rel="stylesheet" href="../css/admin-events.css">
+  <link rel="stylesheet" href="../css/manage.css">
+</head>
+<body>
+
+  <!-- Glass Sidebar -->
+  <aside class="side">
+    <a href="#" class="side-brand">U CONNECT</a>
+    <nav>
+      <ul class="side-links">
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-event.html" class="active">Events</a></li>
+        <li><a href="admin-clubs.html">Clubs</a></li>
+        <li><a href="admin-venues.html">Venues</a></li>
+        <li><a href="admin-attendees.html">Attendees</a></li>
+      </ul>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user"><span class="avatar">AD</span><span>Admin</span></div>
+      <a href="index.html" class="btn-logout">Logout</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="page-head">
+      <div>
+        <h1>Events</h1>
+        <p>All events across campus. 6 events found.</p>
+      </div>
+      
+    </header>
+
+    <p class="role-note">You can see every event. Only committees create, edit and cancel events. Admins can delete events once they are cancelled.</p>
+
+    <div class="filter-bar">
+      <input type="text" placeholder="Search by title, club or venue" aria-label="Search events">
+      <select aria-label="Filter by club"><option>All clubs</option><option>Computer Science Club</option><option>AI Society</option><option>Robotics Club</option><option>Cybersecurity Club</option><option>Design Society</option></select>
+      <select aria-label="Filter by status"><option>All statuses</option><option>Open</option><option>Full</option><option>Draft</option><option>Cancelled</option></select>
+      <button type="button" class="btn-search">Search</button>
+      <button type="button" class="btn-reset">Reset</button>
+    </div>
+
+    <section class="tile table-tile">
+      <div class="table-scroll">
+      <table class="data-table">
+        <thead><tr><th>Event</th><th>Date and time</th><th>Venue</th><th>Booked</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody>
+        <tr>
+          <td><b>Hackathon: Code for Campus</b><small>Computer Science Club</small></td><td>Sat, 7 Nov 2026 · 08:30</td><td>Computer Lab 1</td><td>28 / 40</td>
+          <td><span class="status status-open">Open</span></td><td><div class="row-actions"><span class="btn-sm btn-sm-off" aria-disabled="true" title="Only cancelled events can be deleted">Delete</span></div></td>
+        </tr>
+        <tr>
+          <td><b>AI Society Workshop: Intro to Machine Learning</b><small>AI Society</small></td><td>Wed, 11 Nov 2026 · 14:00</td><td>Lecture Hall 3</td><td>135 / 150</td>
+          <td><span class="status status-open">Open</span></td><td><div class="row-actions"><span class="btn-sm btn-sm-off" aria-disabled="true" title="Only cancelled events can be deleted">Delete</span></div></td>
+        </tr>
+        <tr class="is-off">
+          <td><b>Robotics Club: Autonomous Rover Build</b><small>Robotics Club</small></td><td>Fri, 13 Nov 2026 · 10:00</td><td>Maker Space Lab</td><td>0 / 40</td>
+          <td><span class="status status-cancelled">Cancelled</span></td><td><div class="row-actions"><a href="#delete-modal" class="btn-sm btn-sm-red">Delete</a></div></td>
+        </tr>
+        <tr>
+          <td><b>Web Dev Bootcamp: Full-Stack JSP &amp; Servlets</b><small>Computer Science Club</small></td><td>Tue, 17 Nov 2026 · 15:30</td><td>Computer Lab 2</td><td>80 / 80</td>
+          <td><span class="status status-full">Full</span></td><td><div class="row-actions"><span class="btn-sm btn-sm-off" aria-disabled="true" title="Only cancelled events can be deleted">Delete</span></div></td>
+        </tr>
+        <tr>
+          <td><b>Cybersecurity CTF Capture the Flag Challenge</b><small>Cybersecurity Club</small></td><td>Sat, 21 Nov 2026 · 09:00</td><td>Auditorium A</td><td>120 / 400</td>
+          <td><span class="status status-open">Open</span></td><td><div class="row-actions"><span class="btn-sm btn-sm-off" aria-disabled="true" title="Only cancelled events can be deleted">Delete</span></div></td>
+        </tr>
+        <tr>
+          <td><b>UI/UX Design Masterclass: Figma to Code</b><small>Design Society</small></td><td>Thu, 26 Nov 2026 · 16:00</td><td>Multimedia Studio</td><td>0 / 30</td>
+          <td><span class="status status-draft">Draft</span></td><td><div class="row-actions"><span class="btn-sm btn-sm-off" aria-disabled="true" title="Only cancelled events can be deleted">Delete</span></div></td>
+        </tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal" id="delete-modal" role="dialog" aria-modal="true" aria-labelledby="delete-modal-t">
+    <div class="modal-box">
+      <h2 id="delete-modal-t">Delete this event?</h2>
+      <p>This cancelled event is removed from every list, with its bookings and attendance records. This cannot be undone.</p>
+      <div class="modal-actions"><a href="#" class="btn-keep">Keep event</a><a href="#" class="btn-confirm">Yes, delete event</a></div>
+    </div>
+  </div>
+
+</body>
+</html>

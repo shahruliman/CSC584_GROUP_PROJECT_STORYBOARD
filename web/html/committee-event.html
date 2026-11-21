@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events | U CONNECT</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/admin-events.css">
+</head>
+<body>
+
+  <!-- Glass Sidebar -->
+  <aside class="side">
+    <a href="#" class="side-brand">U CONNECT</a>
+    <nav>
+      <ul class="side-links">
+        <li><a href="committee-dashboard.html">Dashboard</a></li>
+        <li><a href="committee-event.html" class="active">Events</a></li>
+        <li><a href="create-event.html">Create event <b>+</b></a></li>
+        <li><a href="committee-attendance.html">Attendance</a></li>
+        <li><a href="committee-clubs.html">Clubs</a></li>
+        <li><a href="committee-venues.html">Venues</a></li>
+      </ul>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user"><span class="avatar">CM</span><span>Committee</span></div>
+      <a href="admin-login.html" class="btn-logout">Logout</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="page-head">
+      <div>
+        <h1>Events</h1>
+        <p>6 events found. Select an event to edit or cancel it.</p>
+      </div>
+      <a href="create-event.html" class="btn-create">+ Create event</a>
+    </header>
+
+    <!-- Search & filter -->
+    <div class="filter-bar">
+      <input type="text" placeholder="Search by title, club or venue" aria-label="Search events">
+
+      <select aria-label="Filter by club">
+        <option value="all">All clubs</option>
+        <option>Computer Science Club</option>
+        <option>Robotics Club</option>
+        <option>AI Society</option>
+        <option>Cybersecurity Club</option>
+        <option>Design Society</option>
+      </select>
+
+      <select aria-label="Filter by status">
+        <option value="all">All statuses</option>
+        <option>Open</option>
+        <option>Full</option>
+        <option>Draft</option>
+        <option>Cancelled</option>
+      </select>
+
+      <button type="button" class="btn-search">Search</button>
+      <button type="button" class="btn-reset">Reset</button>
+    </div>
+
+    <!-- Event cards -->
+    <div class="events-list">
+
+      <a href="edit-event.html?id=1" class="ticket-card">
+        <div>
+          <div class="card-top">
+            <span class="ticket-badge">Computer Science Club</span>
+            <span class="status status-open">Open</span>
+          </div>
+          <h3 class="ticket-title">Hackathon: Code for Campus</h3>
+        </div>
+        <div class="ticket-details">
+          <p class="ticket-datetime">Sat, 7 Nov 2026 at 08:30</p>
+          <p class="ticket-venue">Computer Lab 1</p>
+          <p class="ticket-seats">28 / 40 booked</p>
+          <div class="mini-bar"><i style="width:70%"></i></div>
+        </div>
+      </a>
+
+      <a href="edit-event.html?id=2" class="ticket-card">
+        <div>
+          <div class="card-top">
+            <span class="ticket-badge">AI Society</span>
+            <span class="status status-open">Open</span>
+          </div>
+          <h3 class="ticket-title">AI Society Workshop: Intro to Machine Learning</h3>
+        </div>
+        <div class="ticket-details">
+          <p class="ticket-datetime">Wed, 11 Nov 2026 at 14:00</p>
+          <p class="ticket-venue">Lecture Hall 3</p>
+          <p class="ticket-seats">135 / 150 booked</p>
+          <div class="mini-bar"><i style="width:90%"></i></div>
+        </div>
+      </a>
+
+      <a href="edit-event.html?id=3" class="ticket-card is-cancelled">
+        <div>
+          <div class="card-top">
+            <span class="ticket-badge">Robotics Club</span>
+            <span class="status status-cancelled">Cancelled</span>
+          </div>
+          <h3 class="ticket-title">Robotics Club: Autonomous Rover Build</h3>
+        </div>
+        <div class="ticket-details">
+          <p class="ticket-datetime">Fri, 13 Nov 2026 at 10:00</p>
+          <p class="ticket-venue">Maker Space Lab</p>
+          <p class="ticket-seats">Tickets released</p>
+          <div class="mini-bar"><i style="width:0%"></i></div>
+        </div>
+      </a>
+
+      <a href="edit-event.html?id=4" class="ticket-card">
+        <div>
+          <div class="card-top">
+            <span class="ticket-badge">Computer Science Club</span>
+            <span class="status status-full">Full</span>
+          </div>
+          <h3 class="ticket-title">Web Dev Bootcamp: Full-Stack JSP &amp; Servlets</h3>
+        </div>
+        <div class="ticket-details">
+          <p class="ticket-datetime">Tue, 17 Nov 2026 at 15:30</p>
+          <p class="ticket-venue">Computer Lab 2</p>
+          <p class="ticket-seats">80 / 80 booked · 6 waitlisted</p>
+          <div class="mini-bar"><i style="width:100%"></i></div>
+        </div>
+      </a>
+
+      <a href="edit-event.html?id=5" class="ticket-card">
+        <div>
+          <div class="card-top">
+            <span class="ticket-badge">Cybersecurity Club</span>
+            <span class="status status-open">Open</span>
+          </div>
+          <h3 class="ticket-title">Cybersecurity CTF Capture the Flag Challenge</h3>
+        </div>
+        <div class="ticket-details">
+          <p class="ticket-datetime">Sat, 21 Nov 2026 at 09:00</p>
+          <p class="ticket-venue">Auditorium A</p>
+          <p class="ticket-seats">120 / 400 booked</p>
+          <div class="mini-bar"><i style="width:30%"></i></div>
+        </div>
+      </a>
+
+      <a href="edit-event.html?id=6" class="ticket-card">
+        <div>
+          <div class="card-top">
+            <span class="ticket-badge">Design Society</span>
+            <span class="status status-draft">Draft</span>
+          </div>
+          <h3 class="ticket-title">UI/UX Design Masterclass: Figma to Code</h3>
+        </div>
+        <div class="ticket-details">
+          <p class="ticket-datetime">Thu, 26 Nov 2026 at 16:00</p>
+          <p class="ticket-venue">Multimedia Studio</p>
+          <p class="ticket-seats">Not published · 30 seats</p>
+          <div class="mini-bar"><i style="width:0%"></i></div>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+</body>
+</html>

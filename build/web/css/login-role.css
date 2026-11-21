@@ -1,0 +1,74 @@
+/* ==========================================
+   Role picker for the staff login (Admin / Committee)
+   Load after login.css
+   ========================================== */
+
+.role-picker { margin-bottom: 20px; }
+
+.role-legend {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.role-options {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* the real radio buttons stay in the page for keyboard and screen readers */
+.role-options input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.role-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 16px;
+    background-color: #f8f9fa;
+    border: 1.5px solid #dcdcdc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.role-card strong {
+    font-size: 16px;
+    color: #1a102f;
+}
+
+.role-card span {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #666;
+}
+
+.role-card:hover {
+    border-color: #512da8;
+    transform: translateY(-1px);
+}
+
+.role-options input:checked + .role-card {
+    background-color: #1d0536;
+    border-color: #1d0536;
+    box-shadow: 0 6px 20px rgba(76, 3, 160, 0.25);
+}
+
+.role-options input:checked + .role-card strong { color: #ffffff; }
+.role-options input:checked + .role-card span   { color: #d9c8f0; }
+
+.role-options input:focus-visible + .role-card {
+    outline: 3px solid #512da8;
+    outline-offset: 2px;
+}
+
+@media (max-width: 520px) {
+    .role-options { grid-template-columns: 1fr; }
+}

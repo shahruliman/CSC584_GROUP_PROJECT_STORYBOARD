@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Birthday</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root{ --white:#fff; --black:#000; --pink:#ff4d8d; --blush:#ffe3ee; --grey:#e8e8e8; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--white);color:var(--black);font-family:'Inter',system-ui,sans-serif}
+
+  /* page is tall only to give scrolling room; the stage never moves */
+  #scroll-space{width:1px}
+  #stage{position:fixed;inset:0;overflow:hidden;background:var(--white)}
+
+  #line{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+  .cheart{position:absolute;left:0;top:0;width:34px;z-index:2;pointer-events:none}
+  .float{position:absolute;background:var(--blush);border-radius:16px;z-index:0;will-change:transform}
+
+  .item{position:absolute;left:0;top:0;width:min(70vw,340px);will-change:transform,opacity;pointer-events:none}
+  .card{background:var(--white);border:2px solid var(--black);border-radius:22px;box-shadow:8px 8px 0 var(--pink);overflow:hidden}
+  .photo{height:min(34vh,230px);background:var(--grey);overflow:hidden;position:relative;display:grid;place-items:center}
+  .photo img{position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;will-change:transform}
+  .photo .ph{font-weight:800;font-size:2.4rem}
+  .info{padding:12px 16px 16px}
+  .date{font-family:'Caveat',cursive;font-size:1.7rem;color:var(--pink);line-height:1}
+  .title{font-weight:800;font-size:1.25rem;margin:6px 0 4px}
+  .desc{font-size:.95rem;line-height:1.5;max-width:60ch}
+
+  .finale{text-align:center;width:min(86vw,520px)}
+  .heart{position:relative;width:min(70vw,360px);margin:0 auto}
+  .heart svg{width:100%;display:block}
+  .heart p{position:absolute;inset:0;display:grid;place-items:center;padding:0 22% 14%;color:var(--white);font-weight:800;font-size:clamp(1.1rem,4.6vw,1.8rem);line-height:1.2}
+  .btns{display:flex;gap:28px;justify-content:center;margin-top:34px;height:60px}
+  .btn{font:800 1.05rem 'Inter',sans-serif;min-width:130px;padding:14px 26px;border-radius:999px;border:2px solid var(--black);background:var(--white);color:var(--black);cursor:pointer;box-shadow:0 5px 0 var(--black);transition:transform .1s,box-shadow .1s,background .15s}
+  .btn:hover{background:var(--blush)}
+  .btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--black)}
+  #yes{background:var(--pink);color:var(--white)}
+  #no{transition:left .25s cubic-bezier(.3,1.6,.5,1),top .25s cubic-bezier(.3,1.6,.5,1)}
+
+  #hint{position:fixed;bottom:22px;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:1.5rem;transition:opacity .4s;pointer-events:none;z-index:5}
+
+  #party{position:fixed;inset:0;background:var(--pink);color:var(--white);display:none;place-items:center;text-align:center;z-index:300;padding:24px}
+  #party.on{display:grid}
+  #party h1{font-size:clamp(2.2rem,9vw,4.5rem);font-weight:800;line-height:1.05}
+  #party p{font-family:'Caveat',cursive;font-size:2rem;margin-top:14px}
+  .conf{position:fixed;top:-20px;width:10px;height:14px;z-index:301;animation:fall linear forwards}
+  @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+  @media (prefers-reduced-motion:reduce){.conf{display:none}}
+</style>
+</head>
+<body>
+
+<div id="scroll-space"></div>
+
+<div id="stage">
+  <svg id="line" fill="none"><path id="linePath" stroke="#000" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"/></svg>
+  <div id="floats"></div>
+  <svg class="cheart" id="cheart" viewBox="0 0 100 92"><path d="M50 90 C10 60 0 40 0 25 C0 10 12 0 25 0 C37 0 46 7 50 16 C54 7 63 0 75 0 C88 0 100 10 100 25 C100 40 90 60 50 90Z" fill="#000"/></svg>
+  <div id="items"></div>
+</div>
+
+<div id="hint">scroll slowly ↓</div>
+
+<div id="party">
+  <div>
+    <h1>Yay! 🎉<br>Happy Birthday!</h1>
+    <p>I can't wait to celebrate with you ♥</p>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   1) EDIT YOUR MEMORIES HERE
+   src  = path to your picture, e.g. "photos/1.jpg" ("" = PIC placeholder)
+   Add or remove lines freely.
+   ============================================================ */
+const MEMORIES = [
+  { src:"", date:"01 January 2023",  title:"How we met",     desc:"Write the story of the day we first met here." },
+  { src:"", date:"14 February 2023", title:"Our first date", desc:"Write about your first date here." },
+  { src:"", date:"20 June 2023",     title:"A day I loved",  desc:"Write about this memory here." },
+  { src:"", date:"05 October 2023",  title:"Another memory", desc:"Write about this memory here." },
+  { src:"", date:"25 December 2023", title:"One more",       desc:"Write about this memory here." }
+];
+
+/* 2) EDIT THE FINAL QUESTION HERE */
+const QUESTION = "Would you like to celebrate your birthday with me?";
+/* ============================================================ */
+
+const $ = s => document.querySelector(s);
+const N = MEMORIES.length;                 // finale is item index N
+const HEART = "M50 90 C10 60 0 40 0 25 C0 10 12 0 25 0 C37 0 46 7 50 16 C54 7 63 0 75 0 C88 0 100 10 100 25 C100 40 90 60 50 90Z";
+
+/* ---- build cards ---- */
+const els = MEMORIES.map((m,i)=>{
+  const d = document.createElement('div');
+  d.className = 'item';
+  d.innerHTML = `
+    <div class="card">
+      <div class="photo">${m.src ? `<img src="${m.src}" alt="${m.title}">` : `<span class="ph">PIC${i+1}</span>`}</div>
+      <div class="info"><div class="date">${m.date}</div><div class="title">${m.title}</div><div class="desc">${m.desc}</div></div>
+    </div>`;
+  $('#items').appendChild(d);
+  return d;
+});
+
+/* ---- build finale ---- */
+const fin = document.createElement('div');
+fin.className = 'item finale';
+fin.innerHTML = `
+  <div class="heart">
+    <svg viewBox="0 0 100 92"><path d="${HEART}" fill="#000"/></svg>
+    <p>${QUESTION}</p>
+  </div>
+  <div class="btns"><button class="btn" id="yes">yes</button><button class="btn" id="no">no</button></div>`;
+$('#items').appendChild(fin);
+els.push(fin);
+
+/* ---- soft pink boxes in the background (own parallax) ---- */
+const floats = [];
+[[8,14,70,50,.6],[80,10,90,64,1.1],[86,70,60,46,.8],[5,76,80,58,1.4],[50,88,56,40,.5]].forEach(([x,y,w,h,s])=>{
+  const f = document.createElement('div');
+  f.className = 'float';
+  Object.assign(f.style,{left:x+'%',top:y+'%',width:w+'px',height:h+'px'});
+  $('#floats').appendChild(f);
+  floats.push({f,s});
+});
+
+/* ---- scroll room ---- */
+const PER_STEP = 90;                        // % of screen height scrolled per memory
+function sizeSpace(){ $('#scroll-space').style.height = (innerHeight + N*innerHeight*PER_STEP/100) + 'px'; }
+sizeSpace(); addEventListener('resize', sizeSpace);
+
+let target = 0, current = 0;
+function readScroll(){
+  const max = document.documentElement.scrollHeight - innerHeight;
+  target = max > 0 ? (scrollY / max) * N : 0;     // 0 … N
+  $('#hint').style.opacity = scrollY > 40 ? 0 : 1;
+}
+addEventListener('scroll', readScroll, {passive:true}); readScroll();
+
+const clamp = (v,a,b)=>Math.max(a,Math.min(b,v));
+
+/* ---- the spiral ----
+   Every picture rides on ONE logarithmic spiral. k = 0 is the big front spot;
+   each next picture sits further along the spiral, smaller, winding in toward
+   a centre point. Scrolling slides every picture one step along the curve. */
+const SHRINK  = 0.60;                       // size: each picture is 60% of the one before
+const RADIUS  = 0.85;                       // how fast the spiral tightens (closer to 1 = wider loops)
+const TURN    = 1.1;                        // radians turned per step (bigger = tighter swirl)
+const FADE_AT = 4.8;                        // pictures deeper than this fade out
+function geo(){
+  const portrait = innerHeight > innerWidth;
+  const R0 = portrait ? innerWidth*0.6 : Math.min(innerHeight*0.32, innerWidth*0.3);
+  const F  = { x: portrait ? 0 : -innerWidth*0.03, y: innerHeight*(portrait ? 0.17 : 0.2) };   // big front spot (bottom)
+  const th0 = 1.65;                         // front sits just below the spiral's centre
+  return { R0, F, th0, C:{ x:F.x - R0*Math.cos(th0), y:F.y - R0*Math.sin(th0) } };
+}
+function slot(k){                            // works for negative k too (the curve continues outward)
+  const g = geo(), R = g.R0 * Math.pow(RADIUS,k), th = g.th0 - k*TURN;
+  return { x:g.C.x + R*Math.cos(th), y:g.C.y + R*Math.sin(th), s:Math.pow(SHRINK,k), r:k*3 };
+}
+/* the dotted line IS the spiral, so pictures sit on it and are joined by it */
+function drawSpiral(){
+  const cx = innerWidth/2, cy = innerHeight/2;
+  let d = '';
+  for(let k=-1.7; k<=9; k+=0.05){
+    const p = slot(k);
+    d += (d ? ' L' : 'M') + (cx+p.x).toFixed(1) + ' ' + (cy+p.y).toFixed(1);
+  }
+  $('#linePath').setAttribute('d', d);
+}
+drawSpiral(); addEventListener('resize', drawSpiral);
+
+function render(){
+  current += (target - current) * 0.09;
+  const prog = current;
+  const cx = innerWidth/2, cy = innerHeight/2;
+
+  els.forEach((el,i)=>{
+    const t = prog - i;                     // t<0 waiting behind, 0 front, >0 leaving left
+    let x,y,s,r,op,info;
+
+    if(t <= 0){                             // waiting in the queue
+      const k = -t, p = slot(k);
+      x=p.x; y=p.y; s=p.s; r=p.r;
+      op = clamp(1 - (k - FADE_AT)*1.5, 0, 1);
+      info = clamp(1 - k*1.6, 0, 1);        // text only readable near the front
+    }else{                                  // leaving: shrink, slide left, vanish
+      const p = slot(-t);                   // keeps following the spiral outward
+      x = p.x; y = p.y;
+      s = 1 - t * 0.55;
+      r = -t * 12;
+      op = clamp(1 - t * 1.15, 0, 1);
+      info = 1;
+    }
+    if(i === N && t > -1){ const f = clamp(1 + t, 0, 1), p0 = slot(0); x -= p0.x*f; y -= p0.y*f; }   // finale centres itself
+
+    if(op <= 0.01){ el.style.visibility='hidden'; return; }
+    el.style.visibility = 'visible';
+    el.style.opacity = op;
+    el.style.zIndex = 100 - Math.round(Math.abs(t)*10);
+    el.style.transform = `translate(${cx + x - el.offsetWidth/2}px,${cy + y - el.offsetHeight/2}px) rotate(${r}deg) scale(${s})`;
+    el.style.pointerEvents = (i === N && Math.abs(t) < 0.15) ? 'auto' : 'none';
+
+    const inf = el.querySelector('.info'); if(inf) inf.style.opacity = info;
+    const btns = el.querySelector('.btns'); if(btns) btns.style.opacity = clamp(1 + t*3, 0, 1);
+    const img = el.querySelector('.photo img'); if(img) img.style.transform = `translateY(${t * -35}px)`;
+
+  });
+
+  const g = geo(), ch = $('#cheart');
+  ch.style.transform = `translate(${innerWidth/2 + g.C.x - 17}px,${innerHeight/2 + g.C.y - 16}px)`;
+  ch.style.opacity = clamp(N - prog - 1, 0, 1);       // fades as the big heart arrives
+  floats.forEach(({f,s},k)=>{
+    const dir = k % 2 ? 1 : -1;
+    f.style.transform = `translate(${dir*prog*30*s}px,${-prog*60*s}px) rotate(${prog*10*s*dir}deg)`;
+  });
+
+  requestAnimationFrame(render);
+}
+render();
+
+/* ---- NO runs away ---- */
+const no = $('#no'), yes = $('#yes');
+let evaded = false;
+function evade(){
+  if(!evaded){
+    const r = no.getBoundingClientRect();
+    document.body.appendChild(no);          // leave the animated card so it can roam the screen
+    no.style.position = 'fixed';
+    no.style.left = r.left + 'px';
+    no.style.top  = r.top  + 'px';
+    no.style.zIndex = 200;
+    evaded = true;
+    void no.offsetWidth;
+  }
+  const w = no.offsetWidth, h = no.offsetHeight, pad = 16, cur = no.getBoundingClientRect();
+  let nx, ny, tries = 0;
+  do{
+    nx = pad + Math.random()*(innerWidth  - w - pad*2);
+    ny = pad + Math.random()*(innerHeight - h - pad*2);
+  }while(Math.hypot(nx-cur.left, ny-cur.top) < 180 && ++tries < 20);
+  no.style.left = nx + 'px';
+  no.style.top  = ny + 'px';
+}
+['mouseenter','pointerdown','touchstart','focus'].forEach(ev =>
+  no.addEventListener(ev, e => { e.preventDefault(); evade(); }, {passive:false}));
+no.addEventListener('click', e => { e.preventDefault(); evade(); });
+
+/* ---- YES ---- */
+yes.addEventListener('click', () => {
+  $('#party').classList.add('on');
+  const colors = ['#ff4d8d','#ffffff','#000000','#ffe3ee'];
+  for(let i=0;i<120;i++){
+    const c = document.createElement('i');
+    c.className = 'conf';
+    c.style.left = Math.random()*100 + 'vw';
+    c.style.background = colors[i%colors.length];
+    c.style.animationDuration = (2 + Math.random()*3) + 's';
+    c.style.animationDelay = (Math.random()*1.2) + 's';
+    document.body.appendChild(c);
+  }
+});
+</script>
+</body>
+</html>

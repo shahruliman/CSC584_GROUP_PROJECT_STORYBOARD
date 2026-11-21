@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Venues | U CONNECT</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/create-event.css">
+  <link rel="stylesheet" href="../css/admin-events.css">
+  <link rel="stylesheet" href="../css/manage.css">
+</head>
+<body>
+
+  <!-- Glass Sidebar -->
+  <aside class="side">
+    <a href="#" class="side-brand">U CONNECT</a>
+    <nav>
+      <ul class="side-links">
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-event.html">Events</a></li>
+        <li><a href="admin-clubs.html">Clubs</a></li>
+        <li><a href="admin-venues.html" class="active">Venues</a></li>
+        <li><a href="admin-attendees.html">Attendees</a></li>
+      </ul>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user"><span class="avatar">AD</span><span>Admin</span></div>
+  <a href="admin-login.html" class="btn-logout">Logout</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="page-head">
+      <div>
+        <h1>Venues</h1>
+        <p>Add, edit and remove the rooms available for events.</p>
+      </div>
+      <a href="#add-venue" class="btn-create">+ Add venue</a>
+    </header>
+
+    <section class="card-grid">
+      <article class="tile info-card">
+        <div class="info-top"><div class="venue-ring" style="--p:92"><span>92%</span></div><div><h3>Lecture Hall 3</h3><small>Lecture hall · 150 seats</small></div></div>
+        <p>Next booking: <b>Wed, 11 Nov at 14:00</b></p>
+        <div class="card-actions"><a href="#edit-venue" class="btn-sm btn-sm-line">Edit</a><a href="#remove-venue" class="btn-sm btn-sm-red">Remove</a></div>
+      </article>
+      <article class="tile info-card">
+        <div class="info-top"><div class="venue-ring" style="--p:80"><span>80%</span></div><div><h3>Maker Space Lab</h3><small>Lab · 40 seats</small></div></div>
+        <p>Next booking: <b>Tue, 24 Nov at 10:00</b></p>
+        <div class="card-actions"><a href="#edit-venue" class="btn-sm btn-sm-line">Edit</a><a href="#remove-venue" class="btn-sm btn-sm-red">Remove</a></div>
+      </article>
+      <article class="tile info-card">
+        <div class="info-top"><div class="venue-ring" style="--p:75"><span>75%</span></div><div><h3>Computer Lab 1</h3><small>Lab · 80 seats</small></div></div>
+        <p>Next booking: <b>Sat, 7 Nov at 08:30</b></p>
+        <div class="card-actions"><a href="#edit-venue" class="btn-sm btn-sm-line">Edit</a><a href="#remove-venue" class="btn-sm btn-sm-red">Remove</a></div>
+      </article>
+      <article class="tile info-card">
+        <div class="info-top"><div class="venue-ring" style="--p:71"><span>71%</span></div><div><h3>Computer Lab 2</h3><small>Lab · 80 seats</small></div></div>
+        <p>Next booking: <b>Tue, 17 Nov at 15:30</b></p>
+        <div class="card-actions"><a href="#edit-venue" class="btn-sm btn-sm-line">Edit</a><a href="#remove-venue" class="btn-sm btn-sm-red">Remove</a></div>
+      </article>
+      <article class="tile info-card">
+        <div class="info-top"><div class="venue-ring" style="--p:46"><span>46%</span></div><div><h3>Auditorium A</h3><small>Hall · 400 seats</small></div></div>
+        <p>Next booking: <b>Sat, 21 Nov at 09:00</b></p>
+        <div class="card-actions"><a href="#edit-venue" class="btn-sm btn-sm-line">Edit</a><a href="#remove-venue" class="btn-sm btn-sm-red">Remove</a></div>
+      </article>
+      <article class="tile info-card">
+        <div class="info-top"><div class="venue-ring" style="--p:20"><span>20%</span></div><div><h3>Multimedia Studio</h3><small>Studio · 30 seats</small></div></div>
+        <p>Next booking: <b>Thu, 26 Nov at 16:00</b></p>
+        <div class="card-actions"><a href="#edit-venue" class="btn-sm btn-sm-line">Edit</a><a href="#remove-venue" class="btn-sm btn-sm-red">Remove</a></div>
+      </article>
+    </section>
+
+  </main>
+
+  <div class="modal" id="add-venue" role="dialog" aria-modal="true" aria-labelledby="add-venue-t">
+    <div class="modal-box">
+      <h2 id="add-venue-t">Add venue</h2>
+      <p>Add a room committees can pick when creating an event.</p>
+      <div class="field"><label>Venue name</label><input type="text" placeholder="Seminar Room 2"></div>
+      <div class="field"><label>Type</label><select><option>Lecture hall</option><option>Lab</option><option>Hall</option><option>Studio</option></select></div>
+      <div class="field"><label>Capacity (seats)</label><input type="number" min="1" placeholder="60"></div>
+      <div class="modal-actions"><a href="#" class="btn-keep">Cancel</a><a href="#" class="btn-publish">Add venue</a></div>
+    </div>
+  </div>
+
+  <div class="modal" id="edit-venue" role="dialog" aria-modal="true" aria-labelledby="edit-venue-t">
+    <div class="modal-box">
+      <h2 id="edit-venue-t">Edit venue</h2>
+      <p>Change the name, type or capacity.</p>
+      <div class="field"><label>Venue name</label><input type="text" value="Lecture Hall 3"></div>
+      <div class="field"><label>Type</label><select><option>Lecture hall</option><option>Lab</option><option>Hall</option><option>Studio</option></select></div>
+      <div class="field"><label>Capacity (seats)</label><input type="number" value="150"></div>
+      <div class="modal-actions"><a href="#" class="btn-keep">Cancel</a><a href="#" class="btn-publish">Save changes</a></div>
+    </div>
+  </div>
+
+  <div class="modal" id="remove-venue" role="dialog" aria-modal="true" aria-labelledby="remove-venue-t">
+    <div class="modal-box">
+      <h2 id="remove-venue-t">Remove this venue?</h2>
+      <p>Committees can no longer pick it for new events. Existing events keep their venue.</p>
+      <div class="modal-actions"><a href="#" class="btn-keep">Keep venue</a><a href="#" class="btn-confirm">Yes, remove venue</a></div>
+    </div>
+  </div>
+
+</body>
+</html>

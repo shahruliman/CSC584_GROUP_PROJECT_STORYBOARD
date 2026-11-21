@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clubs | U CONNECT</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/create-event.css">
+  <link rel="stylesheet" href="../css/admin-events.css">
+  <link rel="stylesheet" href="../css/manage.css">
+</head>
+<body>
+
+  <!-- Glass Sidebar -->
+  <aside class="side">
+    <a href="#" class="side-brand">U CONNECT</a>
+    <nav>
+      <ul class="side-links">
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-event.html">Events</a></li>
+        <li><a href="admin-clubs.html" class="active">Clubs</a></li>
+        <li><a href="admin-venues.html">Venues</a></li>
+        <li><a href="admin-attendees.html">Attendees</a></li>
+      </ul>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user"><span class="avatar">AD</span><span>Admin</span></div>
+    <a href="admin-login.html" class="btn-logout">Logout</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="page-head">
+      <div>
+        <h1>Clubs</h1>
+        <p>Add, edit and remove the clubs on campus.</p>
+      </div>
+      <a href="#add-club" class="btn-create">+ Add club</a>
+    </header>
+
+    <section class="card-grid">
+      <article class="tile info-card">
+        <div class="info-top"><span class="rank-no">CS</span><div><h3>Computer Science Club</h3><small>Head: Aiman Hakim</small></div></div>
+        <p>Coding sessions, hackathons and bootcamps.</p>
+        <dl class="stats"><div><dt>Members</dt><dd>214</dd></div><div><dt>Events</dt><dd>9</dd></div><div><dt>Turnout</dt><dd>94%</dd></div></dl>
+        <div class="card-actions"><a href="#edit-club" class="btn-sm btn-sm-line">Edit</a><a href="#remove-club" class="btn-sm btn-sm-red">Remove</a></div>
+      </article>
+      <article class="tile info-card">
+        <div class="info-top"><span class="rank-no">AI</span><div><h3>AI Society</h3><small>Head: Nurul Izzah</small></div></div>
+        <p>Workshops on machine learning and data.</p>
+        <dl class="stats"><div><dt>Members</dt><dd>168</dd></div><div><dt>Events</dt><dd>7</dd></div><div><dt>Turnout</dt><dd>91%</dd></div></dl>
+        <div class="card-actions"><a href="#edit-club" class="btn-sm btn-sm-line">Edit</a><a href="#remove-club" class="btn-sm btn-sm-red">Remove</a></div>
+      </article>
+      <article class="tile info-card">
+        <div class="info-top"><span class="rank-no">RC</span><div><h3>Robotics Club</h3><small>Head: Daniel Tan</small></div></div>
+        <p>Build sessions for rovers and drones.</p>
+        <dl class="stats"><div><dt>Members</dt><dd>96</dd></div><div><dt>Events</dt><dd>5</dd></div><div><dt>Turnout</dt><dd>87%</dd></div></dl>
+        <div class="card-actions"><a href="#edit-club" class="btn-sm btn-sm-line">Edit</a><a href="#remove-club" class="btn-sm btn-sm-red">Remove</a></div>
+      </article>
+      <article class="tile info-card">
+        <div class="info-top"><span class="rank-no">CY</span><div><h3>Cybersecurity Club</h3><small>Head: Priya Nair</small></div></div>
+        <p>Capture the flag and security talks.</p>
+        <dl class="stats"><div><dt>Members</dt><dd>88</dd></div><div><dt>Events</dt><dd>3</dd></div><div><dt>Turnout</dt><dd>75%</dd></div></dl>
+        <div class="card-actions"><a href="#edit-club" class="btn-sm btn-sm-line">Edit</a><a href="#remove-club" class="btn-sm btn-sm-red">Remove</a></div>
+      </article>
+      <article class="tile info-card">
+        <div class="info-top"><span class="rank-no">DS</span><div><h3>Design Society</h3><small>Head: Hana Yusof</small></div></div>
+        <p>Figma, UI/UX and portfolio masterclasses.</p>
+        <dl class="stats"><div><dt>Members</dt><dd>131</dd></div><div><dt>Events</dt><dd>4</dd></div><div><dt>Turnout</dt><dd>80%</dd></div></dl>
+        <div class="card-actions"><a href="#edit-club" class="btn-sm btn-sm-line">Edit</a><a href="#remove-club" class="btn-sm btn-sm-red">Remove</a></div>
+      </article>
+      <article class="tile info-card">
+        <div class="info-top"><span class="rank-no">DB</span><div><h3>Debate Society</h3><small>Head: Sarah Lim</small></div></div>
+        <p>Weekly debates and public speaking.</p>
+        <dl class="stats"><div><dt>Members</dt><dd>120</dd></div><div><dt>Events</dt><dd>6</dd></div><div><dt>Turnout</dt><dd>82%</dd></div></dl>
+        <div class="card-actions"><a href="#edit-club" class="btn-sm btn-sm-line">Edit</a><a href="#remove-club" class="btn-sm btn-sm-red">Remove</a></div>
+      </article>
+    </section>
+
+  </main>
+
+  <div class="modal" id="add-club" role="dialog" aria-modal="true" aria-labelledby="add-club-t">
+    <div class="modal-box">
+      <h2 id="add-club-t">Add club</h2>
+      <p>Create a club so committees can run events under it.</p>
+      <div class="field"><label>Club name</label><input type="text" placeholder="Photography Club"></div>
+      <div class="field"><label>Description</label><textarea rows="3" placeholder="What the club does."></textarea></div>
+      <div class="field"><label>Committee head</label><input type="text" placeholder="Full name"></div>
+      <div class="modal-actions"><a href="#" class="btn-keep">Cancel</a><a href="#" class="btn-publish">Add club</a></div>
+    </div>
+  </div>
+
+  <div class="modal" id="edit-club" role="dialog" aria-modal="true" aria-labelledby="edit-club-t">
+    <div class="modal-box">
+      <h2 id="edit-club-t">Edit club</h2>
+      <p>Change the club details shown to students and committees.</p>
+      <div class="field"><label>Club name</label><input type="text" value="Computer Science Club"></div>
+      <div class="field"><label>Description</label><textarea rows="3">Coding sessions, hackathons and bootcamps.</textarea></div>
+      <div class="field"><label>Committee head</label><input type="text" value="Aiman Hakim"></div>
+      <div class="modal-actions"><a href="#" class="btn-keep">Cancel</a><a href="#" class="btn-publish">Save changes</a></div>
+    </div>
+  </div>
+
+  <div class="modal" id="remove-club" role="dialog" aria-modal="true" aria-labelledby="remove-club-t">
+    <div class="modal-box">
+      <h2 id="remove-club-t">Remove this club?</h2>
+      <p>Its past events stay in the records, but the club can no longer run new events.</p>
+      <div class="modal-actions"><a href="#" class="btn-keep">Keep club</a><a href="#" class="btn-confirm">Yes, remove club</a></div>
+    </div>
+  </div>
+
+</body>
+</html>

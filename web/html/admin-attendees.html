@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attendees | U CONNECT</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/create-event.css">
+  <link rel="stylesheet" href="../css/admin-events.css">
+  <link rel="stylesheet" href="../css/manage.css">
+</head>
+<body>
+
+  <!-- Glass Sidebar -->
+  <aside class="side">
+    <a href="#" class="side-brand">U CONNECT</a>
+    <nav>
+      <ul class="side-links">
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-event.html">Events</a></li>
+        <li><a href="admin-clubs.html">Clubs</a></li>
+        <li><a href="admin-venues.html">Venues</a></li>
+        <li><a href="admin-attendees.html" class="active">Attendees</a></li>
+      </ul>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user"><span class="avatar">AD</span><span>Admin</span></div>
+   <a href="admin-login.html" class="btn-logout">Logout</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="page-head">
+      <div>
+        <h1>Attendees</h1>
+        <p>See who attended each event.</p>
+      </div>
+      <select class="range" aria-label="Event"><option>Hackathon: Code for Campus (Sat, 7 Nov)</option><option>AI Society Workshop (Wed, 11 Nov)</option><option>Web Dev Bootcamp (Tue, 17 Nov)</option></select>
+    </header>
+
+    <p class="role-note">Attendance is recorded by committees. Admins can view it but not change it.</p>
+    <div class="sum-row"><span class="chip">28 booked</span><span class="chip">5 attended</span><span class="chip">1 no-show</span><span class="chip">2 not marked</span></div>
+    <section class="tile table-tile">
+      <div class="table-scroll">
+      <table class="data-table">
+        <thead><tr><th>Student</th><th>Student ID</th><th>Attendance</th></tr></thead>
+        <tbody>
+        <tr><td><b>Aiman Hakim</b></td><td>2023001</td><td><span class="status status-open">Attended</span></td></tr>
+        <tr><td><b>Nurul Izzah</b></td><td>2023014</td><td><span class="status status-open">Attended</span></td></tr>
+        <tr><td><b>Daniel Tan</b></td><td>2022107</td><td><span class="status status-open">Attended</span></td></tr>
+        <tr><td><b>Sarah Lim</b></td><td>2024032</td><td><span class="status status-open">Attended</span></td></tr>
+        <tr><td><b>Farid Rahman</b></td><td>2023088</td><td><span class="status status-full">No-show</span></td></tr>
+        <tr><td><b>Priya Nair</b></td><td>2022145</td><td><span class="status status-open">Attended</span></td></tr>
+        <tr><td><b>Hana Yusof</b></td><td>2024071</td><td><span class="status status-draft">Not marked</span></td></tr>
+        <tr><td><b>Kevin Lau</b></td><td>2023120</td><td><span class="status status-draft">Not marked</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

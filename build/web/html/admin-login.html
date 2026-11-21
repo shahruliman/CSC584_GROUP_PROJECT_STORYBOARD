@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>U-connect - Admin Login</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/login-role.css">
+</head>
+<body>
+
+    <div class="split-container">
+
+        <!-- Left Brand / Info Panel (Admin Theme) -->
+        <div class="left-panel admin-bg">
+            <div class="brand-badge">U-CONNECT</div>
+            <h1>Manage Events &amp; Attendance.</h1>
+            <p>Create new club workshops, oversee seat capacities, review turnouts, and monitor venue utilization effortlessly.</p>
+        </div>
+
+        <!-- Right Form Panel -->
+        <div class="right-panel">
+            <div class="form-box">
+                <h2>Staff Login</h2>
+                <p class="subtitle">Authorized committee &amp; admin access only.</p>
+
+                <!-- Without JavaScript the form opens the admin dashboard; the script below switches it by role -->
+                <form id="loginForm" action="admin-dashboard.html" method="GET">
+
+                    <!-- Role picker (pure CSS) -->
+                    <div class="role-picker" role="radiogroup" aria-labelledby="roleLegend">
+                        <span class="role-legend" id="roleLegend">Log in as</span>
+                        <div class="role-options">
+                            <input type="radio" name="role" id="role-admin" value="admin" checked>
+                            <label for="role-admin" class="role-card">
+                                <strong>Admin</strong>
+                                <span>View everything, cancel or delete events, manage clubs and venues</span>
+                            </label>
+
+                            <input type="radio" name="role" id="role-committee" value="committee">
+                            <label for="role-committee" class="role-card">
+                                <strong>Committee</strong>
+                                <span>Create and edit events, update attendance</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="e.g. admin_cs" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn admin-btn">Log in</button>
+                </form>
+
+                <div class="footer-links">
+                    Looking for student portal? <a href="student-login.html">Log in here</a><br>
+                    New here? <a href="register.html">Create an account</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Send each role to its own dashboard
+        document.getElementById('loginForm').addEventListener('submit', function () {
+            var role = this.querySelector('input[name="role"]:checked').value;
+            this.action = (role === 'committee') ? 'committee-dashboard.html' : 'admin-dashboard.html';
+        });
+    </script>
+
+</body>
+</html>

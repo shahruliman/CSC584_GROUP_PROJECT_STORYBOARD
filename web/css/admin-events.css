@@ -1,0 +1,207 @@
+/* ==========================================
+   U CONNECT - Admin Events list, edit and cancel
+   Extends dashboard.css
+   ========================================== */
+
+/* ---------- Search & filter ---------- */
+.filter-bar {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.filter-bar input[type="text"] {
+    flex: 3;
+    min-width: 260px;
+    padding: 18px 22px;
+    font: inherit;
+    font-size: 17px;
+    border: 1.5px solid #dcdcdc;
+    border-radius: 10px;
+    background: #ffffff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filter-bar select {
+    flex: 1;
+    min-width: 170px;
+    padding: 18px 22px;
+    font: inherit;
+    font-size: 17px;
+    border: 1.5px solid #dcdcdc;
+    border-radius: 10px;
+    background: #ffffff;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filter-bar input:focus-visible,
+.filter-bar select:focus-visible {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 4px var(--purple-soft);
+}
+
+.btn-search {
+    padding: 18px 36px;
+    font: inherit;
+    font-size: 17px;
+    font-weight: bold;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+.btn-search:hover { background: #4c03a0; transform: translateY(-1px); }
+
+.btn-reset {
+    padding: 16px 32px;
+    font: inherit;
+    font-size: 17px;
+    font-weight: bold;
+    background: transparent;
+    color: #000000;
+    border: 1.5px solid #000000;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-reset:hover { background: var(--purple-soft); transform: translateY(-1px); }
+
+/* ---------- Event cards (ticket style, same as student page) ---------- */
+.events-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 32px;
+}
+
+.ticket-card {
+    --page-bg: #f0eeee;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 260px;
+    border-radius: 20px;
+    padding: 25px;
+    overflow: hidden;
+    background: linear-gradient(135deg,
+        rgba(124, 58, 237, 0.20) 0%,
+        rgba(255, 255, 255, 0.55) 45%,
+        rgba(236, 72, 153, 0.18) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #000000;
+    text-decoration: none;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    border: 2px solid #7c3aed;
+    transition: all 0.3s ease;
+}
+
+.ticket-card:hover,
+.ticket-card:focus-visible {
+    background: linear-gradient(135deg,
+        rgba(124, 58, 237, 0.30) 0%,
+        rgba(255, 255, 255, 0.65) 45%,
+        rgba(236, 72, 153, 0.26) 100%);
+    border-color: #6d28d9;
+    box-shadow: 0 12px 40px 0 rgba(124, 58, 237, 0.25);
+    transform: translateY(-3px);
+    outline: none;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.ticket-badge {
+    display: inline-block;
+    background-color: rgba(124, 58, 237, 0.12);
+    color: #5b21b6;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.ticket-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #000000;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Perforation line with side notches */
+.ticket-details {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 14px;
+    border-top: 2px dashed rgba(124, 58, 237, 0.4);
+}
+
+.ticket-details::before,
+.ticket-details::after {
+    content: "";
+    position: absolute;
+    top: -13px;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--page-bg);
+    border: 2px solid #7c3aed;
+    box-sizing: border-box;
+}
+.ticket-details::before { left: -37px; }
+.ticket-details::after  { right: -37px; }
+
+.ticket-details p { margin: 0; font-size: 18px; font-weight: bold; }
+
+.mini-bar {
+    height: 8px;
+    margin-top: 8px;
+    background: var(--purple-soft);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.mini-bar i { display: block; height: 100%; background: linear-gradient(90deg, #7c3aed, #4c1d95); border-radius: 8px; }
+
+/* ---------- Status pills ---------- */
+.status {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 800;
+}
+.status-open      { background: var(--purple); color: #ffffff; }
+.status-full      { background: #000000; color: #ffffff; }
+.status-draft     { background: transparent; color: #111111; border: 1.5px dashed #111111; }
+.status-cancelled { background: #d9d6d6; color: #555555; }
+
+/* Cancelled card */
+.ticket-card.is-cancelled { border-color: #9a9a9a; background: rgba(255, 255, 255, 0.5); box-shadow: none; }
+.ticket-card.is-cancelled .ticket-title { color: #666666; text-decoration: line-through; }
+.ticket-card.is-cancelled .ticket-badge { background: #e6e3e3; color: #555555; border-color: #c9c6c6; }
+.ticket-card.is-cancelled .ticket-details { border-top-color: #b5b2b2; }
+.ticket-card.is-cancelled .ticket-details::before,
+.ticket-card.is-cancelled .ticket-details::after { border-color: #9a9a9a; }
+.ticket-card.is-cancelled .ticket-details p { color: #666666; }
+
+@media (max-width: 820px) {
+    .filter-bar input[type="text"], .filter-bar select { min-width: 100%; }
+}

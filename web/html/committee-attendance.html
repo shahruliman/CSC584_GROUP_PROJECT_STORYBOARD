@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attendance | U CONNECT</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/create-event.css">
+  <link rel="stylesheet" href="../css/admin-events.css">
+  <link rel="stylesheet" href="../css/manage.css">
+</head>
+<body>
+
+  <!-- Glass Sidebar -->
+  <aside class="side">
+    <a href="#" class="side-brand">U CONNECT</a>
+    <nav>
+      <ul class="side-links">
+        <li><a href="committee-dashboard.html">Dashboard</a></li>
+        <li><a href="committee-event.html">Events</a></li>
+        <li><a href="create-event.html">Create event <b>+</b></a></li>
+        <li><a href="committee-attendance.html" class="active">Attendance</a></li>
+        <li><a href="committee-clubs.html">Clubs</a></li>
+        <li><a href="committee-venues.html">Venues</a></li>
+      </ul>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user"><span class="avatar">CM</span><span>Committee</span></div>
+    <a href="admin-login.html" class="btn-logout">Logout</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="page-head">
+      <div>
+        <h1>Attendance</h1>
+        <p>Update attendance statuses after the event.</p>
+      </div>
+      <select class="range" aria-label="Event"><option>Hackathon: Code for Campus (Sat, 7 Nov)</option><option>AI Society Workshop (Wed, 11 Nov)</option><option>Web Dev Bootcamp (Tue, 17 Nov)</option></select>
+    </header>
+
+    <p class="role-note">Mark who showed up. Changes are saved for the admin to review.</p>
+    <div class="sum-row"><span class="chip">28 booked</span><span class="chip">5 attended</span><span class="chip">1 no-show</span><span class="chip">2 not marked</span></div>
+    <section class="tile table-tile">
+      <div class="table-scroll">
+      <table class="data-table">
+        <thead><tr><th>Student</th><th>Student ID</th><th>Attendance</th></tr></thead>
+        <tbody>
+        <tr><td><b>Aiman Hakim</b></td><td>2023001</td><td><div class="seg"><input type="radio" name="s0" id="s0a" checked><label for="s0a" class="l-yes">Attended</label><input type="radio" name="s0" id="s0n"><label for="s0n" class="l-no">No-show</label></div></td></tr>
+        <tr><td><b>Nurul Izzah</b></td><td>2023014</td><td><div class="seg"><input type="radio" name="s1" id="s1a" checked><label for="s1a" class="l-yes">Attended</label><input type="radio" name="s1" id="s1n"><label for="s1n" class="l-no">No-show</label></div></td></tr>
+        <tr><td><b>Daniel Tan</b></td><td>2022107</td><td><div class="seg"><input type="radio" name="s2" id="s2a" checked><label for="s2a" class="l-yes">Attended</label><input type="radio" name="s2" id="s2n"><label for="s2n" class="l-no">No-show</label></div></td></tr>
+        <tr><td><b>Sarah Lim</b></td><td>2024032</td><td><div class="seg"><input type="radio" name="s3" id="s3a" checked><label for="s3a" class="l-yes">Attended</label><input type="radio" name="s3" id="s3n"><label for="s3n" class="l-no">No-show</label></div></td></tr>
+        <tr><td><b>Farid Rahman</b></td><td>2023088</td><td><div class="seg"><input type="radio" name="s4" id="s4a"><label for="s4a" class="l-yes">Attended</label><input type="radio" name="s4" id="s4n" checked><label for="s4n" class="l-no">No-show</label></div></td></tr>
+        <tr><td><b>Priya Nair</b></td><td>2022145</td><td><div class="seg"><input type="radio" name="s5" id="s5a" checked><label for="s5a" class="l-yes">Attended</label><input type="radio" name="s5" id="s5n"><label for="s5n" class="l-no">No-show</label></div></td></tr>
+        <tr><td><b>Hana Yusof</b></td><td>2024071</td><td><div class="seg"><input type="radio" name="s6" id="s6a"><label for="s6a" class="l-yes">Attended</label><input type="radio" name="s6" id="s6n"><label for="s6n" class="l-no">No-show</label></div></td></tr>
+        <tr><td><b>Kevin Lau</b></td><td>2023120</td><td><div class="seg"><input type="radio" name="s7" id="s7a"><label for="s7a" class="l-yes">Attended</label><input type="radio" name="s7" id="s7n"><label for="s7n" class="l-no">No-show</label></div></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+    <div class="action-bar att-actions">
+      <button type="button" class="btn-draft">Mark all attended</button>
+      <button type="button" class="btn-publish">Save attendance</button>
+    </div>
+
+  </main>
+
+</body>
+</html>
