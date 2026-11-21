@@ -1,21 +1,21 @@
-# 4. E-Hadir: Student Event & Workshop Ticketing (U CONNECT)
+# 4. E-Hadir: Student Event & Workshop Ticketing (U CONNECT) Storyboard design
 
 **Course:** CSC584 - Enterprise Programming  
 **Group Name:** [pejalcoco]  
 **Live Website:** [https://shahruliman.github.io/uconnect/](https://shahruliman.github.io/uconnect/)
 
 ### Group Members
-| No. | Name | Student ID | Role |
-| :--- | :--- | :--- | :--- |
-| 1 | Shahrul Iman | [2025382685] | [UI/UX (view)] |
-| 2 | MUHAMMAD FAIZAL BIN NOR HAZANI | [Student ID] | [BackEnd (Controller)] |
-| 3 | [Member 3 Name] | [Student ID] | [Database (Model)] |
-| 4 | [Member 4 Name] | [Student ID] | [Integration and Dashboard] |
+| No. | Name | Student ID |
+| :--- | :--- | :--- | 
+| 1 | MUHAMMAD SHAHRUL IMAN BIN KAMAL | 2025382685 |
+| 2 | MUHAMMAD FAIZAL BIN NOR HAZANI | 2025382145 | 
+| 3 | SITI JASHNITHA BINTI ABDUL AZIZ | 2025143263 |
+| 4 | SYED MUHAMMAD KAMAL NA'IM BIN SYED MOHD KHOMSAH | 2025178587 | 
 
 ---
 
 ## Project Description
-A centralized event management system for university clubs to issue digital tickets. **U CONNECT (E-Hadir)** bridges university clubs, event committees, administrators, and students on a single platform to streamline workshop discovery, seat reservations, waitlist automation, and post-event attendance tracking.
+A centralized event management system for university clubs to issue digital tickets. **U connect** bridges university clubs, event committees, administrators, and students on a single platform to streamline workshop discovery, seat reservations, waitlist automation, and post-event attendance tracking.
 
 ---
 
