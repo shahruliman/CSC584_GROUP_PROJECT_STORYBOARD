@@ -1,16 +1,16 @@
 # 4. E-Hadir: Student Event & Workshop Ticketing (U CONNECT)
 
 **Course:** CSC584 - Enterprise Programming  
-**Group Name:** [Enter Your Group Name]  
+**Group Name:** [pejalcoco]  
 **Live Website:** [https://shahruliman.github.io/uconnect/](https://shahruliman.github.io/uconnect/)
 
 ### Group Members
 | No. | Name | Student ID | Role |
 | :--- | :--- | :--- | :--- |
-| 1 | Shahrul Iman | [Student ID] | [Role] |
-| 2 | [Member 2 Name] | [Student ID] | [Role] |
-| 3 | [Member 3 Name] | [Student ID] | [Role] |
-| 4 | [Member 4 Name] | [Student ID] | [Role] |
+| 1 | Shahrul Iman | [2025382685] | [UI/UX (view)] |
+| 2 | MUHAMMAD FAIZAL BIN NOR HAZANI | [Student ID] | [BackEnd (Controller)] |
+| 3 | [Member 3 Name] | [Student ID] | [Database (Model)] |
+| 4 | [Member 4 Name] | [Student ID] | [Integration and Dashboard] |
 
 ---
 
