@@ -1,4 +1,4 @@
-# 4. E-Hadir: Student Event & Workshop Ticketing (U CONNECT) Storyboard design
+#  E-Hadir: Student Event & Workshop Ticketing (U CONNECT) Storyboard interface design
 
 **Course:** CSC584 - Enterprise Programming  
 **Group Name:** [pejalcoco]  
@@ -11,6 +11,7 @@
 | 2 | MUHAMMAD FAIZAL BIN NOR HAZANI | 2025382145 | 
 | 3 | SITI JASHNITHA BINTI ABDUL AZIZ | 2025143263 |
 | 4 | SYED MUHAMMAD KAMAL NA'IM BIN SYED MOHD KHOMSAH | 2025178587 | 
+| 5 | HARITH MIRZA BIN MADRADZI| 2025178523 | 
 
 ---
 
