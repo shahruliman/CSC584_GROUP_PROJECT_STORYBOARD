@@ -2,7 +2,7 @@
 
 **Course:** CSC584 - Enterprise Programming  
 **Group Name:** [pejalcoco]  
-**Live Website:** [https://shahruliman.github.io/uconnect/](https://shahruliman.github.io/uconnect/)
+**Live Website:** [[https://shahruliman.github.io/uconnect/](https://shahruliman.github.io/uconnect/](https://shahruliman.github.io/CSC584_GROUP_PROJECT_STORYBOARD/))
 
 ### Group Members
 | No. | Name | Student ID |
