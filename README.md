@@ -1,4 +1,4 @@
-#  E-Hadir: Student Event & Workshop Ticketing (U CONNECT) Storyboard
+# E-Hadir: Student Event & Workshop Ticketing (U CONNECT) Storyboard
 
 **Course:** CSC584 - Enterprise Programming  
 **Group Name:** [pejalcoco]  
@@ -23,22 +23,28 @@ A centralized event management system for university clubs to issue digital tick
 ## Core System Features
 
 ### 1. Role-Based CRUD Operations
-* **Create (Committees):** Event committees create new club events, assign venues, and configure seat capacities.
-* **Read (Students & Staff):** Students browse upcoming campus events and view seat availability; committees and admins monitor event lists, clubs, and venues.
-* **Update (Committees):** Committees edit event details/statuses and update student attendance statuses after each event concludes.
-* **Delete (Admins):** Administrators permanently remove canceled events and manage campus clubs and venues.
+- **Create (Committees):** Event committees create new club events, assign venues, and configure seat capacities.
+- **Read (Students & Staff):** Students browse upcoming campus events and view seat availability; committees and admins monitor event lists, clubs, and venues.
+- **Update (Committees):** Committees edit event details/statuses and update student attendance statuses after each event concludes.
+- **Delete (Admins):** Administrators permanently remove canceled events and manage campus clubs and venues.
 
 ### 2. Business Logic (Capacity & Waitlist Management)
 A state-control algorithm that dynamically manages seat inventory:
-* Deducts available tickets immediately upon student booking confirmation.
-* When available capacity reaches **0**, new registrants are automatically routed to a **Waitlist** queue instead of being turned away.
-* If a confirmed attendee cancels their ticket, the system automatically upgrades the next waitlisted student into a confirmed seat.
+- Deducts available tickets immediately upon student booking confirmation.
+- When available capacity reaches **0**, new registrants are automatically routed to a **Waitlist** queue instead of being turned away.
+- If a confirmed attendee cancels their ticket, the system automatically upgrades the next waitlisted student into a confirmed seat.
 
 ### 3. Analytics Dashboard
 Provides real-time campus-wide operational insights for both Committees and Admins:
-* **Top 5 Clubs by Turnout:** Ranks the highest-performing student clubs based on confirmed attendance rates.
-* **Monthly Engagement Rates:** Tracks total digital tickets issued and month-over-month student participation trends.
-* **Venue Utilization:** Monitors room occupancy percentages and upcoming booking schedules across campus halls and labs.
+- **Top 5 Clubs by Turnout:** Ranks the highest-performing student clubs based on confirmed attendance rates.
+- **Monthly Engagement Rates:** Tracks total digital tickets issued and month-over-month student participation trends.
+- **Venue Utilization:** Monitors room occupancy percentages and upcoming booking schedules across campus halls and labs.
+
+---
+
+## Database Design (ERD)
+
+![UConnect ERD](./uconnect-erd.drawio.png)
 
 ---
 
@@ -56,7 +62,7 @@ The project is a **NetBeans 8.2 Java Web Application** (Ant). The `web/` folder 
 | NetBeans IDE | 8.2 (Java EE or All bundle) | The Java SE and HTML5 bundles have no web server |
 | Web server | GlassFish 4.1.1 or Apache Tomcat 8.0.x | GlassFish is included with the Java EE bundle; Tomcat 9 and 10 are not supported |
 
-
+---
 
 ## Application Pages Overview
 
