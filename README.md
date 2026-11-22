@@ -1,4 +1,4 @@
-#  E-Hadir: Student Event & Workshop Ticketing (U CONNECT) Storyboard interface design
+#  E-Hadir: Student Event & Workshop Ticketing (U CONNECT) Storyboard
 
 **Course:** CSC584 - Enterprise Programming  
 **Group Name:** [pejalcoco]  
@@ -39,6 +39,60 @@ Provides real-time campus-wide operational insights for both Committees and Admi
 * **Top 5 Clubs by Turnout:** Ranks the highest-performing student clubs based on confirmed attendance rates.
 * **Monthly Engagement Rates:** Tracks total digital tickets issued and month-over-month student participation trends.
 * **Venue Utilization:** Monitors room occupancy percentages and upcoming booking schedules across campus halls and labs.
+
+---
+
+## How to Run
+
+The project is a **NetBeans 8.2 Java Web Application** (Ant). The `web/` folder holds every page, stylesheet, script and image.
+
+> **Current status:** the pages are fully linked and runnable as a front-end prototype. Servlets, JSP and the MySQL database are added in the next stages, so the save, cancel and add buttons are previews only and the login accepts any username and password.
+
+### Requirements
+
+| Item | Version | Notes |
+| :--- | :--- | :--- |
+| JDK | 8 | NetBeans 8.2 does not work with newer JDKs |
+| NetBeans IDE | 8.2 (Java EE or All bundle) | The Java SE and HTML5 bundles have no web server |
+| Web server | GlassFish 4.1.1 or Apache Tomcat 8.0.x | GlassFish is included with the Java EE bundle; Tomcat 9 and 10 are not supported |
+
+### Option A: Run in NetBeans 8.2 (recommended)
+
+1. **Download** the project (`unisb-netbeans.zip`, or clone the repository) and unzip it. Avoid folder paths with special characters.
+2. Start **NetBeans 8.2**.
+3. Go to **File > Open Project**, select the inner **unisb** folder (the one with the project icon) and click **Open Project**.
+4. If NetBeans shows **missing server**, right-click the project, choose **Resolve Server Problem**, pick **GlassFish Server 4.1.1** or **Apache Tomcat**, and click **OK**.
+   * If the list is empty: **Tools > Servers > Add Server**. For Tomcat, download the 8.0.x zip from tomcat.apache.org, extract it, select that folder, and set a username and password. For GlassFish, select the `glassfish-4.1.1` folder inside your NetBeans install folder.
+5. Right-click the **unisb** project and choose **Run** (or press **F6**).
+6. The browser opens **http://localhost:8080/unisb/**. The `/unisb` part is required.
+
+To start from a specific page, set **Project Properties > Run > Relative URL**, for example `/html/admin-login.html`.
+
+If NetBeans cannot open the project, use **File > New Project > Java Web > Web Application with Existing Sources**, point it at the `unisb` folder, and set `web` as the Web Pages folder.
+
+### Option B: View without a server
+
+Open `web/index.html` directly in a browser (double-click it), or visit the live website above. Everything is static, so no server is needed. Use this to preview pages quickly.
+
+### Where to start for each role
+
+| Role | Start page | What to try |
+| :--- | :--- | :--- |
+| Student | `web/html/student-login.html` | Browse events, open event details, view My Tickets |
+| Committee | `web/html/admin-login.html` (choose **Committee**) | Dashboard, create and edit events, attendance, clubs, venues |
+| Admin | `web/html/admin-login.html` (choose **Admin**) | Dashboard, events oversight (delete cancelled only), clubs, venues, attendee audit |
+| New user | `web/html/register.html` | Create an account as Student, Committee or Admin |
+
+### Troubleshooting
+
+| Problem | Fix |
+| :--- | :--- |
+| Missing server | Follow step 4 above |
+| Port 8080 already in use | Stop the other program, or change the port in **Tools > Servers** |
+| 404 page not found | Use the full address `http://localhost:8080/unisb/` |
+| Page looks unstyled | Make sure `web/css` and `web/pic` are still in the project |
+| NetBeans or the server will not start | Check you are using JDK 8 and Tomcat 8.0.x (not 9 or 10) |
+| Changes not showing | Save the file and refresh the browser with Ctrl+F5 |
 
 ---
 
