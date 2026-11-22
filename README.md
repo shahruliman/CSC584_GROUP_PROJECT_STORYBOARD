@@ -44,7 +44,7 @@ Provides real-time campus-wide operational insights for both Committees and Admi
 
 ## Database Design (ERD)
 
-![UConnect ERD](./uconnect-erd.drawio.png)
+![UConnect ERD](./erd.drawio.png)
 
 ---
 
