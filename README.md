@@ -16,7 +16,7 @@
 ---
 
 ## Project Description
-A centralized event management system for university clubs to issue digital tickets. **U connect** bridges university clubs, event committees, administrators, and students on a single platform to streamline workshop discovery, seat reservations, waitlist automation, and post-event attendance tracking.
+A centralized event management system for university clubs to issue digital tickets. We change e-hadir name to **U connect**.IT act as a bridges university clubs, event committees, administrators, and students on a single platform to streamline workshop discovery, seat reservations, waitlist automation, and post-event attendance tracking.
 
 ---
 
